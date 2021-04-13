@@ -1,6 +1,11 @@
+;; c64-theme.el
+;; Author: Dag Henrik Fjær
+;; Homepage: https://github.com/lb1wh/c64-theme
+
 (deftheme c64
   "A C64-style custom theme.")
 
+;; C64 color palette (all 16 colors)
 (let (
       (c64-black "#000000")
       (c64-white "#ffffff")
@@ -17,11 +22,11 @@
       (c64-grey "#777777")
       (c64-light-green "#aaff66")
       (c64-light-blue "#0088ff")
-      (c64-light-grey "#bbbbbb")))
+      (c64-light-grey "#bbbbbb"))
 
 (custom-theme-set-faces
  'c64
- '(default ((t (:family "default" :foundry "default" :width normal :height 1 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "#ffffaf" :background "#303030" :stipple nil :inherit nil))))
+ `(default ((t (:family "default" :foundry "default" :width normal :height 1 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground ,c64-light-grey :background ,c64-black :stipple nil :inherit nil))))
  '(cursor ((t (:background "#ffffaf"))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(variable-pitch ((((type w32)) (:foundry "outline" :family "Arial")) (t (:family "Sans Serif"))))
@@ -32,22 +37,21 @@
  '(region ((t (:background "#4e4e4e"))))
  '(shadow ((t (:foreground "#767676"))))
  '(secondary-selection ((t (:background "#3a3a3a"))))
- '(trailing-whitespace ((t (:background "#d75f5f"))))
- '(font-lock-builtin-face ((t (:foreground "#ff8700"))))
+ `(trailing-whitespace ((t (:background ,c64-light-red))))
+ `(font-lock-builtin-face ((t (:foreground ,c64-white))))
  '(font-lock-comment-delimiter-face ((default (:inherit (font-lock-comment-face)))))
- '(font-lock-comment-face ((t (:foreground "#767676"))))
- '(font-lock-constant-face ((t (:foreground "#d787af"))))
+ `(font-lock-comment-face ((t (:foreground ,c64-grey))))
+ `(font-lock-constant-face ((t (:foreground ,c64-white))))
  '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
- '(font-lock-function-name-face ((t (:foreground "#ffaf00"))))
-;; '(font-lock-keyword-face ((t (:foreground "#d75f5f"))))
- '(font-lock-keyword-face ((t (:foreground "#00ff00"))))
+ `(font-lock-function-name-face ((t (:foreground ,c64-white))))
+ `(font-lock-keyword-face ((t (:foreground ,c64-light-green))))
  '(font-lock-negation-char-face ((t nil)))
  '(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
  '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
  '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
- '(font-lock-string-face ((t (:foreground "#00cc55"))))
- '(font-lock-type-face ((t (:foreground "#d787af"))))
- '(font-lock-variable-name-face ((t (:foreground "#87afaf"))))
+ `(font-lock-string-face ((t (:foreground ,c64-light-red))))
+ `(font-lock-type-face ((t (:foreground ,c64-yellow))))
+ `(font-lock-variable-name-face ((t (:foreground ,c64-cyan))))
  '(font-lock-warning-face ((t (:weight bold :foreground "#d75f5f"))))
  '(button ((t (:inherit (link)))))
  '(link ((t (:underline (:color foreground-color :style line) :foreground "#87afaf"))))
@@ -62,10 +66,9 @@
  '(mode-line-inactive ((t (:box nil :foreground "#949494" :background "#3a3a3a"))))
  '(isearch ((t (:foreground "#000000" :background "#ff8700"))))
  '(isearch-fail ((t (:foreground "#ffffaf" :background "#d75f5f"))))
- '(lazy-highlight ((t (:foreground "#000000" :background "#ffaf00"))))
-;; '(lazy-highlight ((t (:foreground ,c64-black :background "#ffaf00"))))
+ `(lazy-highlight ((t (:foreground ,c64-black :background "#ffaf00"))))
  '(match ((t (:foreground "#262626" :background "#87afaf"))))
  '(next-error ((t (:inherit (region)))))
- '(query-replace ((t (:inherit (isearch))))))
+ '(query-replace ((t (:inherit (isearch)))))))
 
 (provide-theme 'c64)
